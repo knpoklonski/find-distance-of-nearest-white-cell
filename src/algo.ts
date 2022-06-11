@@ -44,7 +44,6 @@ export class Algo {
         return this.toBitmap(distance, n, m);
     }
 
-
     private createGraph(bitmap: number[][]): Graph<number> {
         function comparator(a: number, b: number) {
             if (a < b) return -1;

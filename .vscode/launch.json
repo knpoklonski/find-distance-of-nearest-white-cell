@@ -2,6 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/src/app.ts",
+            "outFiles": ["${workspaceFolder}/bin/**/*.js"],
+            "preLaunchTask": "yarn: build",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Debug Jest Tests",
             "type": "node",
             "request": "launch",
