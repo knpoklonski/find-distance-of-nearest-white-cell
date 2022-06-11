@@ -5,7 +5,7 @@
   "main": "src/app.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node ./bin/app.js",
+    "start": "node ./bin/app.js < input.txt",
     "dev": "ts-node ./src/app.ts"
   },
   "keywords": [],
