@@ -3,21 +3,21 @@ import { Queue } from 'typescript-collections';
 
 export class Algo {
     public findDistanceOfNearestWhiteCell(bitmap: number[][]): number[][] {
-        if (bitmap.length == 0) {
+        if (bitmap.length === 0) {
             return [];
         }
 
-        let n = bitmap.length,
-            m = bitmap[0].length;
+        const n = bitmap.length;
+        const m = bitmap[0].length;
 
         // create graph, each cell in bitmap is a node, all nearest cells are edges
-        let graph = this.createGraph(bitmap);
+        const graph = this.createGraph(bitmap);
 
         // to store minimum distance for each node in graph
-        let distance : number [] = [];
+        const distance: number[] = [];
 
         // to mark each node as visited or not in BFS
-        let visited : boolean [] = [];
+        const visited: boolean[] = [];
 
         // init the value of distance and visit
         for (let i = 1; i <= n * m; i++) {
@@ -28,10 +28,10 @@ export class Algo {
         // inserting nodes whose value in matrix
         // is 1(white) in the queue
         let k = 1;
-        let queue = new Queue<number>();
+        const queue = new Queue<number>();
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < m; j++) {
-                if (bitmap[i][j] == 1) {
+                if (bitmap[i][j] === 1) {
                     distance[k] = 0;
                     visited[k] = true;
                     queue.enqueue(k);
@@ -51,25 +51,26 @@ export class Algo {
             return 0;
         }
 
-        let graph = new Graph(comparator);
+        const graph = new Graph(comparator);
 
-        let k = 1;  // number to be assigned to a cell 
+        // number to be assigned to a cell
+        let k = 1;
 
-        let n = bitmap.length,
-            m = bitmap[0].length;
+        const n = bitmap.length;
+        const m = bitmap[0].length;
 
         for (let i = 1; i <= n; i++) {
             for (let j = 1; j <= m; j++) {
-                // if last row, then add edge on right side. 
-                if (i == n) {
-                    // if not bottom right cell. 
-                    if (j != m) {
+                // if last row, then add edge on right side
+                if (i === n) {
+                    // if not bottom right cell
+                    if (j !== m) {
                         graph.addEdge(k, k + 1);
                         graph.addEdge(k + 1, k)
                     }
                 }
                 // if last column, then add edge toward down
-                else if (j == m) {
+                else if (j === m) {
                     graph.addEdge(k, k + m);
                     graph.addEdge(k + m, k)
                 }
@@ -89,12 +90,12 @@ export class Algo {
     }
 
     // convert array of result distance to bitmap
-    private toBitmap(distance:number[], n: number, m :number) : number[][]{
-        let result: number [][] = [];
-        var k = 1;
-        for(let i=0;i<n; i++){
-            result[i]= [];
-            for(let j=0;j<m; j++){
+    private toBitmap(distance: number[], n: number, m: number): number[][] {
+        const result: number[][] = [];
+        let k = 1;
+        for (let i = 0; i < n; i++) {
+            result[i] = [];
+            for (let j = 0; j < m; j++) {
                 result[i][j] = distance[k];
                 k++;
             }
@@ -103,10 +104,10 @@ export class Algo {
         return result;
     }
 
-    private breadthFirstSearch(graph: Graph<number>, visited: boolean [], distance: number[], queue: Queue<number>): void {
+    private breadthFirstSearch(graph: Graph<number>, visited: boolean[], distance: number[], queue: Queue<number>): void {
         while (!queue.isEmpty()) {
-            let nodeNumber = queue.dequeue() ?? -1;
-            let node = graph.nodes.get(nodeNumber);
+            const nodeNumber = queue.dequeue() ?? -1;
+            const node = graph.nodes.get(nodeNumber);
             if (!node) continue;
             node.adjacent.forEach((item) => {
                 if (!visited[item.data]) {

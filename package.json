@@ -4,7 +4,7 @@
   "description": "Find distance of nearest white cell algorithm",
   "main": "src/app.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tslint -p tsconfig.json",
     "start": "node ./bin/app.js < input.txt",
     "dev": "ts-node ./src/app.ts"
   },
@@ -17,7 +17,9 @@
     "ts-jest": "^28.0.4",
     "ts-lint": "^4.5.1",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.3"
+    "tslint": "^6.1.3",
+    "typescript": "^4.7.3",
+    "typescript-tslint-plugin": "^1.0.2"
   },
   "repository": "git@github.com:knpoklonski/find-distance-of-nearest-white-cell.git",
   "dependencies": {

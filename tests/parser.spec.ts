@@ -1,4 +1,5 @@
-import { Parser, ParsingError } from '../src/parser'
+import { Parser } from '../src/parser'
+import { ParsingError } from '../src/parsingError'
 
 test('Should parse input with single test case', () => {
   let parser = new Parser();

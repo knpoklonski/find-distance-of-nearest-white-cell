@@ -86,7 +86,7 @@ export class Graph<T> {
 
     visited.set(node.data, true);
 
-    console.log(node.data);
+    // console.log(node.data);
 
     node.adjacent.forEach((item) => {
       if (!visited.has(item.data)) {
@@ -123,7 +123,7 @@ export class Graph<T> {
 
       if (!node) continue;
 
-      console.log(node.data);
+      // console.log(node.data);
 
       node.adjacent.forEach((item) => {
         if (!visited.has(item.data)) {
