@@ -26,21 +26,23 @@ test('Should return int.Max when bitmap with single cell 0', () => {
 test('Should return all 0 when all cells in bitmap are black', () => {
   let algo = new Algo();
   let result = algo.findDistanceOfNearestWhiteCell(
-    [[1,1,1],
-     [1,1,1]]
+    [[1, 1, 1],
+    [1, 1, 1]]
   );
-  expect(result).toEqual([[0,0,0],
-                          [0,0,0]]);
+  expect(result).toEqual(
+    [[0, 0, 0],
+    [0, 0, 0]]);
 })
 
 test('Should return correct answer for control test case', () => {
   let algo = new Algo();
   let result = algo.findDistanceOfNearestWhiteCell(
-    [[0,0,0,1],
-     [0,0,1,1],
-     [0,1,1,0]]
+    [[0, 0, 0, 1],
+    [0, 0, 1, 1],
+    [0, 1, 1, 0]]
   );
-  expect(result).toEqual([[3,2,1,0],
-                          [2,1,0,0],
-                          [1,0,0,1]]);
+  expect(result).toEqual(
+    [[3, 2, 1, 0],
+    [2, 1, 0, 0],
+    [1, 0, 0, 1]]);
 })
