@@ -46,3 +46,16 @@ test('Should return correct answer for control test case', () => {
     [2, 1, 0, 0],
     [1, 0, 0, 1]]);
 })
+
+test('Should return correct answer test case when max distance 1', () => {
+  let algo = new Algo();
+  let result = algo.findDistanceOfNearestWhiteCell(
+    [[1, 0, 0],
+    [0, 0, 1],
+    [0, 1, 1]]
+  );
+  expect(result).toEqual(
+    [[0, 1, 1],
+    [1, 1, 0],
+    [1, 0, 0]]);
+})
