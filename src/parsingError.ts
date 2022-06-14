@@ -7,7 +7,7 @@ export class ParsingError extends Error {
         Object.setPrototypeOf(this, ParsingError.prototype);
     }
 
-    getErrorMessage() {
+    getErrorMessage(): string {
         return `Parsing error ${this.message} at line ${this.line}`;
     }
 }

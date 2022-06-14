@@ -1,17 +1,26 @@
 
 import { Algo } from './algo';
 import { Parser } from './parser'
+import { ParsingError } from './parsingError'
 class App {
 
     main(input: string) {
         const algo = new Algo();
         const parser = new Parser();
-        const testCases = parser.parse(input);
-
-        testCases.forEach(bitmap => {
-            const result = algo.findDistanceOfNearestWhiteCell(bitmap);
-            this.printResult(result);
-        })
+        try {
+            const testCases = parser.parse(input);
+            testCases.forEach(bitmap => {
+                const result = algo.findDistanceOfNearestWhiteCell(bitmap);
+                this.printResult(result);
+            })
+        } catch (_e) {
+            const e = _e as ParsingError;
+            if (e !== null) {
+                process.stdout.write(e.getErrorMessage());
+            } else {
+                throw _e;
+            }
+        }
     }
 
     private printResult(bitmap: number[][]) {
